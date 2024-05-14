@@ -1,0 +1,484 @@
+{
+    "hobby": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "hobby",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "hobby": "wandelen"
+            },
+            {
+                "id": 2,
+                "hobby": "hond"
+            },
+            {
+                "id": 3,
+                "hobby": "piano spelen"
+            },
+            {
+                "id": 4,
+                "hobby": "drummen"
+            },
+            {
+                "id": 5,
+                "hobby": "gitaar spelen"
+            },
+            {
+                "id": 6,
+                "hobby": "lezen"
+            },
+            {
+                "id": 7,
+                "hobby": "wandelen"
+            }
+        ]
+    },
+    "werkgever": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "werkgever",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "werkgever": "AZ Sint-Blasius"
+            },
+            {
+                "id": 2,
+                "werkgever": "UZ Gent"
+            },
+            {
+                "id": 3,
+                "werkgever": "Gemeente Zele"
+            }
+        ]
+    },
+    "werkervaring": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [
+                {
+                    "field": "werkgever_id",
+                    "references": "werkgever(id)"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "functie",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "werkgever_id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "van",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "tot",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "functie": "Verpleegkundige Intensieve Zorgen",
+                "werkgever_id": 1,
+                "van": "2005",
+                "tot": "2011"
+            },
+            {
+                "id": 2,
+                "functie": "Verpleegkundige Intensieve Zorgen",
+                "werkgever_id": 2,
+                "van": "2011",
+                "tot": "2022"
+            },
+            {
+                "id": 3,
+                "functie": "Ambulancier - Vrijwilliger - 112",
+                "werkgever_id": 3,
+                "van": "2011",
+                "tot": "2014"
+            },
+            {
+                "id": 4,
+                "functie": "Projectmedewerker Data Science Institute",
+                "werkgever_id": 2,
+                "van": "2022",
+                "tot": "2024"
+            },
+            {
+                "id": 5,
+                "functie": "Data Engineer Data Science Institute",
+                "werkgever_id": 2,
+                "van": "2024",
+                "tot": null
+            }
+        ]
+    },
+    "school": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "instelling",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "instelling": "Artevelde Hogeschool"
+            },
+            {
+                "id": 2,
+                "instelling": "KAHO Sint-Lieven"
+            },
+            {
+                "id": 3,
+                "instelling": "Open Universiteit Nederland"
+            },
+            {
+                "id": 4,
+                "instelling": "MOOC"
+            }
+        ]
+    },
+    "diploma": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "diploma",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "diploma": "Bachelor in de Ziekenhuisverpleegkunde"
+            },
+            {
+                "id": 2,
+                "diploma": "Banaba Intensieve Zorg en Spoedgevallenzorg"
+            },
+            {
+                "id": 3,
+                "diploma": "Bachelor of Science in de Informatica"
+            }
+        ]
+    },
+    "opleiding": {
+        "metadata": {
+            "primary_key": "id",
+            "foreign_keys": [
+                {
+                    "field": "diploma_id",
+                    "references": "diploma(id)"
+                },
+                {
+                    "field": "school_id",
+                    "references": "school(id)"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "diploma_id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "module",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "afstudeerjaar",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "school_id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "status_module",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "status_diploma",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        "data": [
+            {
+                "id": 1,
+                "diploma_id": 1,
+                "module": null,
+                "afstudeerjaar": "2005",
+                "school_id": 1,
+                "status_module": null,
+                "status_diploma": "completed"
+            },
+            {
+                "id": 2,
+                "diploma_id": 2,
+                "module": null,
+                "afstudeerjaar": "2007",
+                "school_id": 2,
+                "status_module": null,
+                "status_diploma": "completed"
+            },
+            {
+                "id": 3,
+                "diploma_id": 3,
+                "module": "Inleiding informatiekunde",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 4,
+                "diploma_id": 3,
+                "module": "Inleiding informatica",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 5,
+                "diploma_id": 3,
+                "module": "Logica, verzamelingen en relaties",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 6,
+                "diploma_id": 3,
+                "module": "Databases",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 7,
+                "diploma_id": 3,
+                "module": "Model-Driven Development",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 8,
+                "diploma_id": 3,
+                "module": "Lineaire algebra en stochastiek",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 9,
+                "diploma_id": 3,
+                "module": "Communicatietechnologie",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 10,
+                "diploma_id": 3,
+                "module": "Formele talen en automaten",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 11,
+                "diploma_id": 3,
+                "module": "De werking van computersystemen",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 12,
+                "diploma_id": 3,
+                "module": "Objectgeoriënteerd programmeren in Java 1",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 13,
+                "diploma_id": 3,
+                "module": "Objectgeoriënteerd programmeren in Java 2",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 14,
+                "diploma_id": 3,
+                "module": "Objectgeoriënteerd analyseren en ontwerpen",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 15,
+                "diploma_id": 3,
+                "module": "Practicum ontwerpen en implementeren",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 16,
+                "diploma_id": 3,
+                "module": "Concepten van programmeertalen ",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 17,
+                "diploma_id": 3,
+                "module": "Datastructuren en algoritmen",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 18,
+                "diploma_id": 3,
+                "module": "Functioneel programmeren",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 19,
+                "diploma_id": 3,
+                "module": "Logica en informatica",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 20,
+                "diploma_id": 3,
+                "module": "Kunstmatige Intelligentie",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 21,
+                "diploma_id": 3,
+                "module": "Security & IT",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 22,
+                "diploma_id": 3,
+                "module": "Webapplicaties: de cliëntkant",
+                "afstudeerjaar": null,
+                "school_id": 3,
+                "status_module": "completed",
+                "status_diploma": "work in progress"
+            },
+            {
+                "id": 23,
+                "diploma_id": null,
+                "module": "Data Science: R Basics",
+                "afstudeerjaar": null,
+                "school_id": 4,
+                "status_module": "completed",
+                "status_diploma": null
+            },
+            {
+                "id": 24,
+                "diploma_id": null,
+                "module": "Linux Basics: The Command Line Interface",
+                "afstudeerjaar": null,
+                "school_id": 4,
+                "status_module": "completed",
+                "status_diploma": null
+            },
+            {
+                "id": 25,
+                "diploma_id": null,
+                "module": "Computing in Python I: Fundamentals and Procedural Programming",
+                "afstudeerjaar": null,
+                "school_id": 4,
+                "status_module": "completed",
+                "status_diploma": null
+            }
+        ]
+    }
+}
