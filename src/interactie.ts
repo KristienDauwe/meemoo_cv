@@ -36,18 +36,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Attach click event listeners to the clickable elements
-    document.getElementById("hobby")?.addEventListener("click", () => {
-        fetchDataAndDisplay("hobby.json");
-    });
+    const hobby = document.getElementById("hobby");
+    if (hobby) {
+        hobby.addEventListener("click", () => {
+            fetchDataAndDisplay("hobby.json");
+        });
+    }
 
-    document.getElementById("werkervaring")?.addEventListener("click", () => {
-        fetchDataAndDisplay("werkervaring.json");
-    });
-
-    document.getElementById("opleiding")?.addEventListener("click", () => {
-        fetchDataAndDisplay("opleiding.json");
-    });
-
+    const werkervaring = document.getElementById("werkervaring");
+    if (werkervaring) {
+        werkervaring.addEventListener("click", () => {
+            fetchDataAndDisplay("werkervaring.json");
+        });
+    }
+    const opleiding = document.getElementById("opleiding");
+    if (opleiding) {
+        opleiding.addEventListener("click", () => {
+            fetchDataAndDisplay("opleiding.json");
+        });
+    }
     // Function to fetch data and display JSON data
     function fetchDataAndDisplay(jsonFile: string) {
         fetch(jsonFile)
