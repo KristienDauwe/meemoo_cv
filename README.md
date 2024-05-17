@@ -15,6 +15,7 @@ A little explanation about the process I followed:
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
+- [Some thoughts](#some-thoughts)
 
 ## Prerequisites
 1. Make sure you have a python interpreter installed on your system. The Python version used voor this project is Python 3.11.9. To check your python version use:
@@ -58,6 +59,3 @@ npm install -g typescript
 
 ## Some thoughts
 I must admit, this was a very fun project to make. I hope you enjoy it as much as I did! Happy coding!
-
-
-

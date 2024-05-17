@@ -104,6 +104,16 @@ def extract_werkervaring(connection: sqlite3.Connection) -> pd.DataFrame:
 
 
 def convert_pandas_to_json_file(panda_to_convert: pd.DataFrame, json_file: str):
+    """
+    Het pandas DataFrame van de geëxtraheerde data wordt omgezet en weggeschreven in een json file.
+
+    Parameters
+    ----------
+    panda_to_convert: pd.DataFrame
+        Het om te zetten pandas DataFrame
+    json_file: str
+        De naam van de file waarin het moet worden weggeschreven.
+    """
     panda_to_json = panda_to_convert.to_json(orient='records')
 
     # Write JSON data to files
