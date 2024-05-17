@@ -12,13 +12,34 @@ A little explanation about the process I followed:
 6. Finally I setup a local http server to view my CV
 7. A bash script put all of the listed items above together.
 
+This code was developed on macOS (M3 chip):
+node.js v20.13.1
+python 3.11.9
+npm 10.5.2
+
+And I ran it on a virtual machine (VMWare Fusion Pro) with a Linux distribution (Ubuntu-22.04.4) where I run into some issues compiling the typescript:
+This was solved when I installed Node.js using nvm:
+```bash
+# installs nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# download and install Node.js
+nvm install 20
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v20.13.1`
+
+# verifies the right NPM version is in the environment
+npm -v # should print `10.5.2`
+```
+
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Some thoughts](#some-thoughts)
 
 ## Prerequisites
-1. Make sure you have a python interpreter installed on your system. The Python version used voor this project is Python 3.11.9. To check your python version use:
+1. Make sure you have a python interpreter installed on your system.  To check your python version use:
 ```bash
  python --version
 ```
@@ -38,9 +59,10 @@ or
 5. Make sure Node.js is installed on your system. Visit https://nodejs.org/en to download it.
 6. Install the Typescript compiler as following:
 ```bash
-npm install -g typescript
+sudo apt install npm
+sudo npm install -g typescript
 ```
-7. In ./meemoo_cv/ make the following script executable: meemoo_cv.sh
+7. Make sure meemo_cv.sh is executable
 
 ## Usage
 1. Execute the meemoo_cv.sh script with this command:

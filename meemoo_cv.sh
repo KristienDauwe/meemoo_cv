@@ -37,21 +37,18 @@ fi
 
 echo "Using port $PORT"
 
-# Check if python interpreter is installed
-if command -v python &> /dev/null; then
-    echo "Python is installed."
+# Determine the Python command to use and give a failure message if python isn't installed
+if command -v python3 &>/dev/null; then
+    PYTHON_CMD=python3
+elif command -v python &>/dev/null; then
+    PYTHON_CMD=python
 else
-    echo "Python is not installed."
-fi
-
-if command -v python3 &> /dev/null; then
-    echo "Python 3 is installed."
-else
-    echo "Python 3 is not installed."
+    echo "Python is not installed"
+    exit 1
 fi
 
 # Run main.py to create in-memory database, fill it with data, extract it again, store it, and create index.html
-if python ./src/main.py; then
+if $PYTHON_CMD ./src/main.py; then
     echo "Python code ran successfully"
 else
     echo "Failed to run Python code"
