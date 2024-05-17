@@ -101,3 +101,13 @@ def extract_werkervaring(connection: sqlite3.Connection) -> pd.DataFrame:
     sql_query = "select W.functie, WG.werkgever, W.van, W.tot from werkervaring W left outer join werkgever WG on W.werkgever_id = WG.id"
     werkervaring_panda = pd.read_sql_query(sql_query, connection)
     return werkervaring_panda
+
+
+def convert_pandas_to_json_file(panda_to_convert: pd.DataFrame, json_file: str):
+    panda_to_json = panda_to_convert.to_json(orient='records')
+
+    # Write JSON data to files
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, json_file)
+    with open(file_path, 'w') as f:
+        f.write(panda_to_json)
