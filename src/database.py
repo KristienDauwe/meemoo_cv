@@ -100,7 +100,8 @@ def extract_werkervaring(connection: sqlite3.Connection) -> pd.DataFrame:
     """
     sql_query = "select W.functie, WG.werkgever, W.van, W.tot from werkervaring W left outer join werkgever WG on W.werkgever_id = WG.id"
     werkervaring_panda = pd.read_sql_query(sql_query, connection)
-    return werkervaring_panda
+    werkevarving_reversed_panda = werkervaring_panda.iloc[::-1].reset_index(drop=True)
+    return werkevarving_reversed_panda
 
 
 def convert_pandas_to_json_file(panda_to_convert: pd.DataFrame, json_file: str):
