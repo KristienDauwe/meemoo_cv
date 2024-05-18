@@ -13,15 +13,19 @@ A little explanation about the process I followed:
 7. A bash script put all of the listed items above together.
 
 This code was developed on macOS (M3 chip):
-node.js v20.13.1
-python 3.11.9
-npm 10.5.2
+- node.js v20.13.1
+- python 3.11.9
+- npm 10.5.2
 
 And I ran it on a virtual machine (VMWare Fusion Pro) with a Linux distribution (Ubuntu-22.04.4) where I run into some issues compiling the typescript:
 This was solved when I installed Node.js using nvm:
 ```bash
-# installs nvm (Node Version Manager)
+# first install curl
+sudo apt install curl
+
+# installs nvm (Node Version Manager) afterwards close your terminal and open it again
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
 
 # download and install Node.js
 nvm install 20
@@ -39,7 +43,8 @@ npm -v # should print `10.5.2`
 - [Some thoughts](#some-thoughts)
 
 ## Prerequisites
-1. Make sure you have a python interpreter installed on your system.  To check your python version use:
+1. Make sure Node.js is installed on your system. Visit https://nodejs.org/en to download it.
+2. Make sure you have a python interpreter installed on your system.  To check your python version use:
 ```bash
  python --version
 ```
@@ -47,27 +52,29 @@ or
 ```bash
  python3 --version
 ```
-2. Create and activate a virtual environment
-3. Clone the repository:
+3. Make sure you have git installed on your system.
+```bash
+ sudo apt install git
+```
+4. Create and activate a virtual environment
+5. Clone the repository:
 ```bash
  git clone https://github.com/KristienDauwe/meemoo_cv.git
 ```
-4. Install the requirements.txt
+6. Install the requirements.txt
 ```bash
  pip install -r requirements.txt
 ```
-5. Make sure Node.js is installed on your system. Visit https://nodejs.org/en to download it.
-6. Install the Typescript compiler as following:
+7. Install the Typescript compiler as following:
 ```bash
-sudo apt install npm
-sudo npm install -g typescript
+ npm install -g typescript
 ```
-7. Make sure meemo_cv.sh is executable
+8. Make sure meemo_cv.sh is executable
 
 ## Usage
 1. Execute the meemoo_cv.sh script with this command:
 ```bash
-./meemo_cv.sh
+ ./meemo_cv.sh
 ```
 2. The script will check if Python is installed properly and give some messages about running the python code and compiling the Typescript file.
 3. A local http server is being set up.
