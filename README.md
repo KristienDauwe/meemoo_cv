@@ -6,7 +6,7 @@ The only thing the user has to do, is to run one script (meemoo_sv.sh) to put ev
 A little explanation about the process I followed:
 1. I use a json file (brondata.json) as the source of the data I want to share
 2. I create and populate an in memory database (SQLite3) based on brondata.json
-3. I query data from this in memory database, return it in a pandas DataFrame. Eventually I store it again in json files (hobby.json, opleiding.json, werkervaring.json). These files will be generated along the way.
+3. I query data from this in memory database and return it in a pandas DataFrame. Eventually I store it again in json files (hobby.json, opleiding.json, werkervaring.json). These files will be generated along the way.
 4. I generate a html file (index.html)
 5. To handle the clicks on the html page in the browser I made a Typescript file which will be compiled into Javascript.
 6. Finally I setup a local http server to view my CV
@@ -17,7 +17,7 @@ This code was developed on macOS (M3 chip):
 - python 3.11.9
 - npm 10.5.2
 
-And I ran it on a virtual machine (VMWare Fusion Pro) with a Linux distribution (Ubuntu-22.04.4) where I run into some issues compiling the typescript:
+And I ran it on a virtual machine (VMWare Fusion Pro) with a Linux distribution (Ubuntu-22.04.4) where I ran into some issues compiling the typescript:
 This was solved when I installed Node.js using nvm:
 ```bash
 # first install curl
